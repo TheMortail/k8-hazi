@@ -1,8 +1,0 @@
-{
-  "properties": [
-    {
-      "name": "kafka.server",
-      "type": "java.lang.String",
-      "description": "Description for kafka.server."
-  }
-] }
