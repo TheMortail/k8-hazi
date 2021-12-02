@@ -1,0 +1,33 @@
+#spring:
+#  data:
+#    cassandra:
+#      keyspace-name: hazi
+#      contact-points: localhost
+#      local-datacenter: datacenter1
+#      username: cassandra
+#      password: cassandra
+#      port: 9042
+#      schema-action: create_if_not_exists
+#  kafka:
+#    consumer:
+#      properties:
+#        spring.josn.trused.package: "eu.pontsystems.hazi.Persistence.Entity.Ad"
+#
+#kafka:
+#  server: localhost:9092
+
+#spring:
+#  kafka:
+#    consumer:
+#      bootstrap-servers: 'localhost:9092'
+#      group-id: group_id
+#      auto-offset-reset: earliest
+#      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+#      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+#    producer:
+#      bootstrap-servers: 'localhost:9092'
+#      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+#      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+#kafka:
+#  topic:
+#    name: hazi
