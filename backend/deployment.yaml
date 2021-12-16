@@ -1,32 +1,47 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: backend-config
+data:
+  spring.data.cassandra.contact-points: cassandra
+  spring.data.cassandra.port: "9042"
+  spring.data.cassandra.keyspace-name: "hazi"
+  spring.data.cassandra.local-datacenter: "datacenter1"
+  spring.data.cassandra.password: "cassandra"
+  spring.data.cassandra.username: "cassandra"
+  spring.kafka.bootstrap-servers: kafka:9092
+  spring.kafka.consumer.group-id: "group_id"
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  creationTimestamp: null
+  name: hazi
   labels:
     app: hazi
-  name: hazi
 spec:
   replicas: 1
   selector:
     matchLabels:
       app: hazi
-  strategy: {}
   template:
     metadata:
-      creationTimestamp: null
       labels:
         app: hazi
     spec:
       containers:
-      - image: localhost:5000/hazi
-        name: hazi
-        resources: {}
-status: {}
+        - name: hazi
+          image: localhost:5000/hazi
+          envFrom:
+            - configMapRef:
+                name: backend-config
+          resources:
+            limits:
+              memory: "256Mi"
+              cpu: "500m"
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  creationTimestamp: null
   labels:
     app: hazi
   name: hazi

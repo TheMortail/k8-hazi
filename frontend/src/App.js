@@ -6,8 +6,6 @@ import Ads from './components/Ads/Ads';
 import kafkaApi from './services/kafkaApi';
 import AdList from "./components/List/AdList";
 
-// const SOCKET_URL = process.env.REACT_APP_BACKEND+'/ws-ad/';
-// const SOCKET_URL = 'http://'+process.env.REACT_APP_BACKEND_URL+'/ws-ad/' || 'http://localhost:8080/ws-ad/';
 const SOCKET_URL = window._env_.REACT_APP_BACKEND_URL || process.env.REACT_APP_BACKEND_URL;
 
 const App = () => {

@@ -6,7 +6,6 @@ import {Box, Container, Grid} from "@material-ui/core";
 function AdList() {
     const [products, setProducts] = useState([]);
 
-    // const URL = process.env.REACT_APP_BACKEND_URL || "localhost:8080";
     const URL = window._env_.REACT_APP_BACKEND_URL || process.env.REACT_APP_BACKEND_URL;
 
     const fetchProducts = async () => {
