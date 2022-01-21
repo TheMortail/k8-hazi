@@ -2,6 +2,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: backend-config
+  namespace: erdosgyorgy-sandbox
 data:
   spring.data.cassandra.contact-points: cassandra
   spring.data.cassandra.port: "9042"
@@ -18,8 +19,9 @@ metadata:
   name: hazi
   labels:
     app: hazi
+  namespace: erdosgyorgy-sandbox
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: hazi
@@ -30,7 +32,7 @@ spec:
     spec:
       containers:
         - name: hazi
-          image: localhost:5000/hazi
+          image: registry.k8s.dev.pnt.hu/gyuri-hazi-backend
           envFrom:
             - configMapRef:
                 name: backend-config
@@ -45,6 +47,7 @@ metadata:
   labels:
     app: hazi
   name: hazi
+  namespace: erdosgyorgy-sandbox
 spec:
   ports:
   - name: 8080-8080
@@ -54,5 +57,3 @@ spec:
   selector:
     app: hazi
   type: ClusterIP
-status:
-  loadBalancer: {}

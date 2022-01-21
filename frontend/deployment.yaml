@@ -2,8 +2,9 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: frontend-config
+  namespace: erdosgyorgy-sandbox
 data:
-  REACT_APP_BACKEND_URL: 10.104.100.90:8080
+  REACT_APP_BACKEND_URL: 10.43.100.180:8080
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -11,6 +12,7 @@ metadata:
   name: frontend
   labels:
     app: frontend
+  namespace: erdosgyorgy-sandbox
 spec:
   selector:
     matchLabels:
@@ -22,7 +24,7 @@ spec:
     spec:
       containers:
         - name: frontend
-          image: localhost:5000/frontend
+          image: registry.k8s.dev.pnt.hu/gyuri-hazi-frontend
           envFrom:
             - configMapRef:
                 name: frontend-config
@@ -39,6 +41,7 @@ metadata:
   name: frontend
   labels:
     app: frontend
+  namespace: erdosgyorgy-sandbox
 spec:
   type: NodePort
   selector:
