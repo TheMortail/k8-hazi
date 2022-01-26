@@ -3,7 +3,7 @@ kind: ConfigMap
 metadata:
   name: frontend-config
 data:
-  REACT_APP_BACKEND_URL: 10.104.100.90:8080
+  REACT_APP_BACKEND_URL: hazi:8080
 ---
 apiVersion: apps/v1
 kind: Deployment
