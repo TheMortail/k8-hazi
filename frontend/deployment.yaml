@@ -4,7 +4,7 @@ metadata:
   name: frontend-config
   namespace: erdosgyorgy-sandbox
 data:
-  REACT_APP_BACKEND_URL: 10.43.111.180:8080
+  REACT_APP_BACKEND_URL: hazi:8080
 ---
 apiVersion: apps/v1
 kind: Deployment
