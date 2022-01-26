@@ -7,19 +7,18 @@
         helm install -n erdosgyorgy-sandbox kafka -f kafka.yaml bitnami/kafka
 
     #Create topic
-        kubectl run kafka-client --restart='Never' --image docker.io/bitnami/kafka:2.8.1-debian-10-r31 --namespace erdosgyorgy-sandbox --command -- sleep infinity
-        kubectl exec --tty -i kafka-client --namespace erdosgyorgy-sandbox -- bash
+        //Cluster Explorer -> Pod -> Shell:
         cd opt/bitnami/kafka/bin
-        kafka-topics.sh --create --zookeeper kafka-zookeeper:2181 --topic hazi --partitions 1 --replication-factor 1
-        //!delete the kafka-client pod afterward!\\
+        kafka-topics.sh --create --zookeeper zookeeper:2181 --topic hazi --partitions 1 --replication-factor 1
 
 ##Cassandra
     #Install
             helm install -n erdosgyorgy-sandbox cassandra -f cassandra.yaml bitnami/cassandra
+            //Wait until the initialization finishes!
 
     #Create keyspace
             //Cluster Explorer -> Pod -> Shell:
-    		cqlsh -u cassandra -p $CASSANDRA_PASSWORD cassandra
+    		cqlsh -u cassandra -p cassandra cassandra
             CREATE KEYSPACE hazi WITH replication = {'class':'SimpleStrategy', 'replication_factor': 1};
 
 ##Backend/Frontend
@@ -32,8 +31,6 @@
     #Apply yaml files
         kubectl apply -f ./backend/deployment.yaml
         kubectl apply -f ./frontend/deployment.yaml
-
-
 
 
 ##Usefull things
