@@ -3,3 +3,4 @@ persistence:
 dbUser:
     user: cassandra
     password: "cassandra"
+#existingConfiguration: cassandra-init-scripts

@@ -57,3 +57,22 @@ spec:
   selector:
     app: hazi
   type: ClusterIP
+#---
+#apiVersion: networking.k8s.io/v1
+#kind: Ingress
+#metadata:
+#  name: eghazi-ingress
+#  labels:
+#    name: eghazi-ingress
+#spec:
+#  rules:
+#    - host: eghazi.k8s.dev.pnt.hu
+#      http:
+#        paths:
+#          - pathType: Prefix
+#            path: "/api"
+#            backend:
+#              service:
+#                name: hazi
+#                port:
+#                  number: 8080

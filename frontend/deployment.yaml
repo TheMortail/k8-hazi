@@ -4,7 +4,7 @@ metadata:
   name: frontend-config
   namespace: erdosgyorgy-sandbox
 data:
-  REACT_APP_BACKEND_URL: hazi:8080
+  REACT_APP_BACKEND_URL: erdosgyorgy-sandbox.k8s.dev.pnt.hu
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -43,11 +43,11 @@ metadata:
     app: frontend
   namespace: erdosgyorgy-sandbox
 spec:
-  type: NodePort
+  type: ClusterIP
   selector:
     app: frontend
   ports:
-    - port: 80
+    - name: 80-80
+      port: 80
       targetPort: 80
       protocol: TCP
-      nodePort: 32000

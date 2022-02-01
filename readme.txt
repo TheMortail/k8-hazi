@@ -32,7 +32,12 @@
         kubectl apply -f ./backend/deployment.yaml
         kubectl apply -f ./frontend/deployment.yaml
 
+##Ingress
+    On rancher -> Load Balancing -> new rule (ingress.jpg, ingress2.jpg for reference)
 
 ##Usefull things
     #In case a pod is stuck in Terminated state
         kubectl delete -n erdosgyorgy-sandbox pods/[pod name] --grace-period=0 --force
+
+    #In case npm/yarn doesn't want to build after a network change
+        sudo systemctl restart docker
