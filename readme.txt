@@ -33,7 +33,7 @@
         kubectl apply -f ./frontend/deployment.yaml
 
 ##Ingress
-    On rancher -> Load Balancing -> new rule (ingress.jpg, ingress2.jpg for reference)
+    On Rancher -> Load Balancing -> new rule (ingress.jpg, ingress2.jpg for reference)
 
 ##Usefull things
     #In case a pod is stuck in Terminated state
