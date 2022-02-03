@@ -13,13 +13,13 @@
 
 ##Cassandra
     #Install
-            helm install -n erdosgyorgy-sandbox cassandra -f cassandra.yaml bitnami/cassandra
-            //Wait until the initialization finishes!
+        helm install -n erdosgyorgy-sandbox cassandra -f cassandra.yaml bitnami/cassandra
+        //Wait until the initialization finishes!
 
     #Create keyspace
-            //Cluster Explorer -> Pod -> Shell:
-    		cqlsh -u cassandra -p cassandra cassandra
-            CREATE KEYSPACE hazi WITH replication = {'class':'SimpleStrategy', 'replication_factor': 1};
+        //Cluster Explorer -> Pod -> Shell:
+        cqlsh -u cassandra -p cassandra cassandra
+        CREATE KEYSPACE hazi WITH replication = {'class':'SimpleStrategy', 'replication_factor': 1};
 
 ##Backend/Frontend
     #Build and push image files
@@ -33,7 +33,7 @@
         kubectl apply -f ./frontend/deployment.yaml
 
 ##Ingress
-    On Rancher -> Load Balancing -> new rule (ingress.jpg, ingress2.jpg for reference)
+        On Rancher -> Load Balancing -> new rule (ingress.jpg, ingress2.jpg for reference)
 
 ##Usefull things
     #In case a pod is stuck in Terminated state
